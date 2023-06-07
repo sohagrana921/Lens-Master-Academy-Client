@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAqozFbgWbAW1IcOfEvYE-NK51oz6BFedg",
-  authDomain: "lensmasters-academy.firebaseapp.com",
-  projectId: "lensmasters-academy",
-  storageBucket: "lensmasters-academy.appspot.com",
-  messagingSenderId: "66497374714",
-  appId: "1:66497374714:web:5a07bd2733e99a17079c43",
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
