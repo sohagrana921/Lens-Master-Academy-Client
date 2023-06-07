@@ -1,4 +1,7 @@
 import { Helmet } from "react-helmet-async";
+import Banner from "./Banner";
+import PopularClass from "./PopularClass";
+import PopularInstructor from "./PopularInstructors";
 
 const Home = () => {
   return (
@@ -6,7 +9,9 @@ const Home = () => {
       <Helmet>
         <title>LensMasters | Home</title>
       </Helmet>
-      <h1>This is home</h1>
+      <Banner></Banner>
+      <PopularClass></PopularClass>
+      <PopularInstructor></PopularInstructor>
     </div>
   );
 };

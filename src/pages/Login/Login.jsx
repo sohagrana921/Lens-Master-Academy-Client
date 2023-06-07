@@ -1,13 +1,15 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import Swal from "sweetalert2";
-import { useContext } from "react";
+import { FaEye } from "react-icons/fa";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { register, handleSubmit, reset } = useForm();
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -32,6 +34,11 @@ const Login = () => {
       navigate(from, { replace: true });
     });
   };
+
+  const passwordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   // const handleLogin = (event) => {
   //   event.preventDefault();
   //   const form = event.target;
@@ -79,13 +86,18 @@ const Login = () => {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  {...register("password", { required: true })}
-                  className="input input-bordered"
-                />
+                <div className="flex items-center">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    placeholder="Password"
+                    {...register("password", { required: true })}
+                    className="input input-bordered w-full"
+                  />
+                  <button onClick={passwordVisibility} className="-ml-10">
+                    <FaEye></FaEye>
+                  </button>
+                </div>
               </div>
               <div className="form-control mt-6">
                 <input
