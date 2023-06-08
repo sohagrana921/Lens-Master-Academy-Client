@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import StudentDashBoard from "./StudentDashBoard";
+import StudentDashBoard from "./StudentDashBoard/StudentDashBoard";
 import { AuthContext } from "../../providers/AuthProvider";
-import AdminDashBoard from "./AdminDashBoard";
+import AdminDashBoard from "./AdminDashBoard/AdminDashBoard";
 
-import InstructorDashBoard from "./InstructorDashBoard";
+import InstructorDashBoard from "./InstructorDashBoard/InstructorDashBoard";
 
 const DashBoard = () => {
   const { user } = useContext(AuthContext);
@@ -15,7 +15,9 @@ const DashBoard = () => {
         setAllUsers(data);
       });
   }, [allUsers]);
-  const currentUserInfo = allUsers.find((user1) => user1.email === user.email);
+  const currentUserInfo = allUsers.find(
+    (current) => current.email === user.email
+  );
 
   return (
     <div>

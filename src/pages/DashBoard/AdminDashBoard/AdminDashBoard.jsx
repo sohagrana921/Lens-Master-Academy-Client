@@ -53,7 +53,7 @@ const AdminDashBoard = () => {
       <Helmet>
         <title>LensMasters | Admin DashBoard</title>
       </Helmet>
-      <h3 className="text-3xl font-semibold my-4">
+      <h3 className="text-3xl font-semibold my-4 text-center">
         Total Users: {allUsers.length}
       </h3>
       <div className="overflow-x-auto">

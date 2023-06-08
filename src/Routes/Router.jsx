@@ -7,7 +7,6 @@ import Instructors from "../pages/Instructors/Instructors";
 import Classes from "../pages/Classes/Classes";
 import DashBoard from "../pages/DashBoard/DashBoard";
 import PrivateRoute from "./PrivateRoute";
-import AddClass from "../pages/DashBoard/AddClass";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,10 +39,6 @@ const router = createBrowserRouter([
             <DashBoard></DashBoard>
           </PrivateRoute>
         ),
-      },
-      {
-        path: "addClass",
-        element: <AddClass></AddClass>,
       },
     ],
   },
