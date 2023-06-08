@@ -22,21 +22,39 @@ const Register = () => {
       setErr("Password Not Matched");
       return;
     }
+
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
-
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
-          reset();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "User created successfully.",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          navigate("/");
+          const saveUser = {
+            name: data.name,
+            email: data.email,
+            status: "student",
+            photo: data.photoURL,
+          };
+          fetch("http://localhost:4000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(saveUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                reset();
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "User created successfully.",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate("/");
+              }
+            });
         })
         .catch((error) => console.log(error));
     });

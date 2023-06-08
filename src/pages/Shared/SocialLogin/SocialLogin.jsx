@@ -9,15 +9,27 @@ const SocialLogin = () => {
 
   const from = location.state?.from?.pathname || "/";
   const handleGoogleSignIn = () => {
-    googleSignIn()
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        navigate(from, { replace: true });
+    googleSignIn().then((result) => {
+      const loggedInUser = result.user;
+      console.log(loggedInUser);
+      const saveUser = {
+        name: loggedInUser.displayName,
+        email: loggedInUser.email,
+        status: "student",
+        photo: loggedInUser.photoURL,
+      };
+      fetch("http://localhost:4000/users", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(saveUser),
       })
-      .catch((error) => {
-        console.log(error.message);
-      });
+        .then((res) => res.json())
+        .then(() => {
+          navigate(from, { replace: true });
+        });
+    });
   };
 
   return (
