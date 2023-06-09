@@ -45,7 +45,7 @@ const SocialLogin = () => {
             src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-google-icon-logo-png-transparent-svg-vector-bie-supply-14.png"
             alt=""
           />
-          <h1 className="text-4xl font-semibold">oogle</h1>
+          <h1 className="text-4xl font-semibold ml-4">Google</h1>
         </button>
       </div>
     </div>

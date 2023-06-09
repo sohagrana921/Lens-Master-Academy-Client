@@ -1,27 +1,37 @@
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import useUsers from "../../hooks/useUsers";
 
 const Instructors = () => {
-  const course = {
-    name: "Tuna Niçoise",
+  const [users, loading] = useUsers();
 
-    image: "https://i.ibb.co/54nSnfv/2.jpg",
-    category: "popular",
-  };
+  if (loading) {
+    return (
+      <div className="flex justify-center my-28">
+        <progress className="progress w-1/2"></progress>
+      </div>
+    );
+  }
+  const instructors = users.filter((user) => user.status == "instructor");
 
   return (
     <div>
       <SectionTitle heading={"Our's Instructors"}></SectionTitle>
+      <div className="grid grid-cols-3 gap-5 my-20 mx-10 md:mx-20">
+        {instructors.map((instructor) => (
+          <div key={instructor._id} className="card  bg-base-100 shadow-xl">
+            <figure>
+              <img className="w-full" src={instructor.photo} alt="" />
+            </figure>
 
-      <div className="card w-96 bg-base-100 shadow-xl">
-        <figure>
-          <img src={course.image} alt="Shoes" />
-        </figure>
+            <div className="card-body flex flex-col ">
+              <h2 className="card-title">Name: {instructor.name}</h2>
 
-        <div className="card-body flex flex-col ">
-          <h2 className="card-title">Name: {course.name}</h2>
-
-          <p>Email:</p>
-        </div>
+              <p>
+                <span className="font-bold">Email :</span> {instructor.email}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

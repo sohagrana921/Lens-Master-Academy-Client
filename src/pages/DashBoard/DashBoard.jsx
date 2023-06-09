@@ -1,23 +1,30 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import StudentDashBoard from "./StudentDashBoard/StudentDashBoard";
 import { AuthContext } from "../../providers/AuthProvider";
 import AdminDashBoard from "./AdminDashBoard/AdminDashBoard";
 
 import InstructorDashBoard from "./InstructorDashBoard/InstructorDashBoard";
+import useUsers from "../../hooks/useUsers";
 
 const DashBoard = () => {
   const { user } = useContext(AuthContext);
-  const [allUsers, setAllUsers] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:4000/users")
-      .then((res) => res.json())
-      .then((data) => {
-        setAllUsers(data);
-      });
-  }, [allUsers]);
-  const currentUserInfo = allUsers.find(
-    (current) => current.email === user.email
-  );
+  const [users, loading] = useUsers();
+  // const [allUsers, setAllUsers] = useState([]);
+  // useEffect(() => {
+  //   fetch("http://localhost:4000/users")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setAllUsers(data);
+  //     });
+  // }, [allUsers]);
+  if (loading) {
+    return (
+      <div className="flex justify-center my-28">
+        <progress className="progress w-1/2"></progress>
+      </div>
+    );
+  }
+  const currentUserInfo = users.find((current) => current.email === user.email);
 
   return (
     <div>

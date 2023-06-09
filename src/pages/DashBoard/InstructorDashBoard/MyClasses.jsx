@@ -17,7 +17,7 @@ const MyClasses = () => {
   const myCourses = courses.filter((course1) => course1.email == user?.email);
 
   return (
-    <div className="w-full my-20">
+    <div className="my-20 mx-10 md:mx-20 ">
       <Helmet>
         <title>LensMasters | My COURSES</title>
       </Helmet>
