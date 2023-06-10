@@ -24,7 +24,10 @@ const Instructors = () => {
             </figure>
 
             <div className="card-body flex flex-col ">
-              <h2 className="card-title">Name: {instructor.name}</h2>
+              <h2>
+                <span className="font-bold">Name: </span>
+                {instructor.name}
+              </h2>
 
               <p>
                 <span className="font-bold">Email :</span> {instructor.email}

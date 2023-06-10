@@ -8,6 +8,10 @@ import Classes from "../pages/Classes/Classes";
 import DashBoard from "../pages/DashBoard/DashBoard";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import UpdateClasses from "../pages/DashBoard/InstructorDashBoard/UpdateClasses";
+import MyClasses from "../pages/DashBoard/InstructorDashBoard/MyClasses";
+
+import Payment from "../pages/DashBoard/Payment/Payment";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,12 +31,27 @@ const router = createBrowserRouter([
         element: <Classes></Classes>,
       },
       {
+        path: "myClasses",
+        element: <MyClasses></MyClasses>,
+      },
+      {
+        path: "updateClass/:id",
+        element: <UpdateClasses></UpdateClasses>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:4000/courses/${params.id}`),
+      },
+      {
         path: "login",
         element: <Login></Login>,
       },
       {
         path: "register",
         element: <Register></Register>,
+      },
+
+      {
+        path: "payment/:id",
+        element: <Payment></Payment>,
       },
       {
         path: "dashboard",

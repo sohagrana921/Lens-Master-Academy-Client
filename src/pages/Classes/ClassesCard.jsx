@@ -10,7 +10,7 @@ const ClassesCard = ({ course }) => {
   const { user } = useContext(AuthContext);
   const [users] = useUsers();
   const navigate = useNavigate();
-  const currentUser = users.find((current) => current.email == user.email);
+  const currentUser = users.find((current) => current.email == user?.email);
 
   const handleAddToCart = () => {
     if (user && user.email) {
@@ -58,17 +58,29 @@ const ClassesCard = ({ course }) => {
   };
 
   return (
-    <div className=" card border bg-base-100 shadow-x">
+    <div
+      className={`card border shadow-x ${
+        seats == "0" ? "bg-red-600" : "bg-slate-100"
+      }`}
+    >
       <figure>
         <img src={photoURL} alt="Shoes" />
       </figure>
 
       <div className="card-body flex flex-col ">
-        <h2 className="card-title">Course Name: {name}</h2>
-        <h2 className="card-title">Instructor: {instructor} </h2>
+        <h2>
+          <span className="font-bold">Course Name:</span> {name}
+        </h2>
+        <h2>
+          <span className="font-bold">Instructor:</span> {instructor}{" "}
+        </h2>
 
-        <h2 className="card-title">Available Seats: {seats} </h2>
-        <h2 className="card-title">Price: ${price} </h2>
+        <h2>
+          <span className="font-bold">Available Seats:</span> {seats}
+        </h2>
+        <h2>
+          <span className="font-bold">Price:</span> ${price}
+        </h2>
 
         <div className="card-actions justify-center">
           <button
@@ -80,7 +92,7 @@ const ClassesCard = ({ course }) => {
                 ? true
                 : false
             }
-            className="btn btn-outline bg-slate-100 border-0 border-b-4 border-orange-400 mt-4"
+            className="btn bg-orange-500"
           >
             Select
           </button>

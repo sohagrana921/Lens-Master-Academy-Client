@@ -21,12 +21,15 @@ const Classes = () => {
       </div>
     );
   }
+  const approvedCourse = courses.filter(
+    (course) => course.status == "Approved"
+  );
   return (
     <div>
       <SectionTitle heading={"Classes"}></SectionTitle>
 
-      <div className="grid grid-cols-3 gap-5 mx-10 md:mx-20 my-20">
-        {courses.map((course) => (
+      <div className="grid grid-cols-3 gap-2 my-container my-20">
+        {approvedCourse.map((course) => (
           <ClassesCard key={course._id} course={course}></ClassesCard>
         ))}
       </div>

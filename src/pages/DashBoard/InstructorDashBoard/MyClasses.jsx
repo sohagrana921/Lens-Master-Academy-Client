@@ -1,8 +1,7 @@
 import { Helmet } from "react-helmet-async";
-
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
-import { FaEdit } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const MyClasses = () => {
   const { user } = useContext(AuthContext);
@@ -41,11 +40,14 @@ const MyClasses = () => {
                 <td>{course1.name}</td>
                 <td>{course1.status}</td>
                 <td>0</td>
-                <td></td>
+                <td>{course1.feedback}</td>
                 <td>
-                  <button>
-                    <FaEdit></FaEdit>
-                  </button>
+                  <Link
+                    to={`/updateClass/${course1._id}`}
+                    className="btn btn-xs btn-success"
+                  >
+                    Update
+                  </Link>
                 </td>
               </tr>
             ))}

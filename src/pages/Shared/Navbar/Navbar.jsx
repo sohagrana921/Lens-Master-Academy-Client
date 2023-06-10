@@ -92,7 +92,7 @@ const Navbar = () => {
                 src="../../../../public/logo.png"
                 alt=""
               />
-              <p className="font-bold">LensMasters Academy</p>
+              <p className="font-bold">LensMasters</p>
             </div>
           </Link>
         </div>
