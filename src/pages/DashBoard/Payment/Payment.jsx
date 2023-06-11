@@ -4,18 +4,25 @@ import useCart from "../../../hooks/useCart";
 
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./Checkout/CheckoutForm";
+import { useLoaderData } from "react-router-dom";
 
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 const Payment = () => {
   const [cart] = useCart();
+  const payableCourse = useLoaderData();
+  // console.log(data);
+  const price = payableCourse.price;
+  // console.log(payableCourse);
 
-  const price = 100;
-  // console.log(price, cart);
   return (
     <div className="my-container">
       <SectionTitle heading="payment"></SectionTitle>
       <Elements stripe={stripePromise}>
-        <CheckoutForm cart={cart} price={price}></CheckoutForm>
+        <CheckoutForm
+          cart={cart}
+          price={price}
+          payableCourse={payableCourse}
+        ></CheckoutForm>
       </Elements>
     </div>
   );

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const SocialLogin = () => {
   const { googleSignIn } = useContext(AuthContext);
@@ -36,9 +36,9 @@ const SocialLogin = () => {
     <div>
       <div className="divider">Or Login Using</div>
       <div className="flex justify-center">
-        <button
+        <Link
           onClick={handleGoogleSignIn}
-          className="flex justify-center items-center bg-slate-300 px-4 py-2 rounded-lg mb-5"
+          className="flex justify-center items-center bg-slate-300 p-4 rounded-lg mb-5"
         >
           <img
             className="h-12 w-12"
@@ -46,7 +46,7 @@ const SocialLogin = () => {
             alt=""
           />
           <h1 className="text-4xl font-semibold ml-4">Google</h1>
-        </button>
+        </Link>
       </div>
     </div>
   );

@@ -39,7 +39,7 @@ const MyClasses = () => {
                 <th>{index + 1}</th>
                 <td>{course1.name}</td>
                 <td>{course1.status}</td>
-                <td>0</td>
+                <td>{course1.enroll || 0}</td>
                 <td>{course1.feedback}</td>
                 <td>
                   <Link

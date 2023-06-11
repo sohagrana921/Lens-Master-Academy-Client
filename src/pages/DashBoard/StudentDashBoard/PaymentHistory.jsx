@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 
-const EnrolledClacess = () => {
+const PaymentHistory = () => {
   const { user } = useContext(AuthContext);
   const [history, setHistory] = useState([]);
   useEffect(() => {
@@ -17,31 +17,21 @@ const EnrolledClacess = () => {
         <thead>
           <tr>
             <th>#</th>
-            <th>Image</th>
             <th>Course Name</th>
-            <th>Instructor</th>
+            <th>Payment Date</th>
             <th>Price</th>
+            <th>Transaction Id</th>
           </tr>
         </thead>
         <tbody>
           {history.map((enrolled, index) => (
             <tr key={enrolled._id}>
               <th>{index + 1}</th>
-              <td>
-                <div className="flex items-center space-x-3">
-                  <div className="avatar">
-                    <div className="mask mask-squircle w-12 h-12">
-                      <img
-                        src={enrolled.image}
-                        alt="Avatar Tailwind CSS Component"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </td>
+
               <td>{enrolled.courseName}</td>
-              <td>{enrolled.instructor}</td>
+              <td>{enrolled.date}</td>
               <td>${enrolled.price}</td>
+              <td>{enrolled.transactionId}</td>
             </tr>
           ))}
         </tbody>
@@ -50,4 +40,4 @@ const EnrolledClacess = () => {
   );
 };
 
-export default EnrolledClacess;
+export default PaymentHistory;

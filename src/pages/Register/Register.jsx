@@ -70,7 +70,8 @@ const Register = () => {
           <h1 className="text-5xl font-bold text-center my-4">
             Please Register
           </h1>
-          <div className="card shadow-2xl bg-base-100">
+          <p>{err}</p>
+          <div className="rounded-xl bg-slate-50">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -81,8 +82,11 @@ const Register = () => {
                   name="name"
                   placeholder="Name"
                   {...register("name", { required: true })}
-                  className="input input-bordered"
+                  className="input"
                 />
+                {errors.name?.type === "required" && (
+                  <p className="text-red-600">Name is required</p>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -95,6 +99,9 @@ const Register = () => {
                   {...register("email", { required: true })}
                   className="input input-bordered"
                 />
+                {errors.email?.type === "required" && (
+                  <p className="text-red-600">Email is required</p>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -148,6 +155,9 @@ const Register = () => {
                   {...register("photoURL", { required: true })}
                   className="input input-bordered"
                 />
+                {errors.photoURL?.type === "required" && (
+                  <p className="text-red-600">PhotoURL is required</p>
+                )}
               </div>
               <div className="form-control mt-6">
                 <input

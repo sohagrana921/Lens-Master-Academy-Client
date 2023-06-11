@@ -1,30 +1,40 @@
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
+import useCourse from "../../hooks/useCourse";
 
 const PopularClass = () => {
-  const course = {
-    name: "Tuna Niçoise",
+  const [course] = useCourse();
 
-    image: "https://i.ibb.co/54nSnfv/2.jpg",
-    category: "popular",
-  };
+  const sortedData = course.sort((a, b) => b.enroll - a.enroll);
+  const mostEnrolls = sortedData.slice(0, 5);
+  console.log(mostEnrolls);
   return (
     <div>
-      <SectionTitle heading={"Popular Class"}></SectionTitle>
+      <SectionTitle heading={"Popular Courses"}></SectionTitle>
 
-      <div className="card w-96 bg-base-100 shadow-xl">
-        <figure>
-          <img src={course.image} alt="Shoes" />
-        </figure>
+      <div className="grid my-container grid-cols-3 gap-4">
+        {mostEnrolls.map((mostEnroll) => (
+          <div key={mostEnroll._id} className="card  bg-base-100 shadow-xl">
+            <figure>
+              <img src={mostEnroll.photoURL} alt="Shoes" />
+            </figure>
 
-        <div className="card-body flex flex-col items-center">
-          <h2 className="card-title">{course.name}</h2>
-
-          <div className="card-actions justify-end">
-            <button className="btn btn-outline bg-slate-100 border-0 border-b-4 border-orange-400 mt-4">
-              Add to Cart
-            </button>
+            <div className="card-body flex flex-col">
+              <h2>
+                <span className="font-bold">Name: {mostEnroll.name} </span>
+              </h2>
+              <h2>
+                <span className="font-bold">
+                  Enrolled Student: {mostEnroll.enroll}
+                </span>
+              </h2>
+              <h2>
+                <span className="font-bold">
+                  Instructor : {mostEnroll.instructor}
+                </span>
+              </h2>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );

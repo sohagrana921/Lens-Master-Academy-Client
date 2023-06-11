@@ -27,6 +27,7 @@ const AddClass = () => {
       price: parseFloat(price),
       status,
       feedback,
+      enroll: 0,
     };
     fetch("http://localhost:4000/courses", {
       method: "POST",

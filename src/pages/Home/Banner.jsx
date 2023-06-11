@@ -1,6 +1,9 @@
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import img1 from "../../assets/images.jpg";
+
+import img2 from "../../assets/img2.webp";
+
+import img4 from "../../assets/img4.webp";
 const Banner = () => {
   return (
     <Carousel
@@ -10,10 +13,11 @@ const Banner = () => {
       infiniteLoop={true}
     >
       <div>
-        <img src={img1} />
+        <img src={img4} />
       </div>
+
       <div>
-        <img src={img1} />
+        <img src={img2} />
       </div>
     </Carousel>
   );

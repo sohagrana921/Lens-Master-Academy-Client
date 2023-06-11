@@ -43,7 +43,7 @@ const ClassesCard = ({ course }) => {
         });
     } else {
       Swal.fire({
-        title: "Please login to enrol the food",
+        title: "Please login to enrol the Course",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",

@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../../providers/AuthProvider";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
-const CheckoutForm = ({ cart, price }) => {
+const CheckoutForm = ({ cart, price, payableCourse }) => {
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useContext(AuthContext);
@@ -77,15 +77,17 @@ const CheckoutForm = ({ cart, price }) => {
         price,
         date: new Date(),
         quantity: cart.length,
+        courseName: payableCourse.name,
+        image: payableCourse.photoURL,
         cartItems: cart.map((item) => item._id),
-        menuItems: cart.map((item) => item.menuItemId),
-        status: "Pending",
-        itemNames: cart.map((item) => item.name),
+        enroll: 0,
+        instructor: payableCourse.instructor,
+        classId: payableCourse.courseId,
       };
       axiosSecure.post("/payments", payment).then((res) => {
         if (res.data.insertResult.insertedId) {
           // display confirm
-          console.log("okey");
+          console.log("object");
         }
       });
     }

@@ -18,20 +18,18 @@ const Instructors = () => {
       <SectionTitle heading={"Our's Instructors"}></SectionTitle>
       <div className="grid grid-cols-3 gap-5 my-20 mx-10 md:mx-20">
         {instructors.map((instructor) => (
-          <div key={instructor._id} className="card  bg-base-100 shadow-xl">
+          <div key={instructor._id} className="card glass">
             <figure>
-              <img className="w-full" src={instructor.photo} alt="" />
+              <img
+                src="https://i.ibb.co/znvcKH7/329040650-1396461091124897-798799447476968705-n.jpg"
+                alt="car!"
+              />
             </figure>
-
-            <div className="card-body flex flex-col ">
-              <h2>
-                <span className="font-bold">Name: </span>
+            <div className="card-body">
+              <h2 className="text-xl font-semibold text-center">
                 {instructor.name}
               </h2>
-
-              <p>
-                <span className="font-bold">Email :</span> {instructor.email}
-              </p>
+              <small>Email : {instructor.email}</small>
             </div>
           </div>
         ))}

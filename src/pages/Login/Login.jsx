@@ -38,28 +38,6 @@ const Login = () => {
   const passwordVisibility = () => {
     setShowPassword(!showPassword);
   };
-
-  // const handleLogin = (event) => {
-  //   event.preventDefault();
-  //   const form = event.target;
-  //   const email = form.email.value;
-  //   const password = form.password.value;
-  //   console.log(email, password);
-  //   signIn(email, password).then((result) => {
-  //     const user = result.user;
-  //     console.log(user);
-  //     Swal.fire({
-  //       title: "User Login Successful.",
-  //       showClass: {
-  //         popup: "animate__animated animate__fadeInDown",
-  //       },
-  //       hideClass: {
-  //         popup: "animate__animated animate__fadeOutUp",
-  //       },
-  //     });
-  //     navigate(from, { replace: true });
-  //   });
-  // };
   return (
     <div className="hero min-h-screen bg-base-200">
       <Helmet>
@@ -68,7 +46,7 @@ const Login = () => {
       <div className="hero-content flex-col md:flex-row-reverse">
         <div className="md:w-1/2 max-w-sm ">
           <h1 className="text-5xl font-bold text-center my-4">Please Login</h1>
-          <div className="card shadow-2xl bg-base-100">
+          <div className="rounded-xl bg-slate-50">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">
                 <label className="label">
@@ -79,7 +57,7 @@ const Login = () => {
                   name="email"
                   placeholder="Email"
                   {...register("email", { required: true })}
-                  className="input input-bordered"
+                  className="input"
                 />
               </div>
               <div className="form-control">
@@ -94,28 +72,27 @@ const Login = () => {
                     {...register("password", { required: true })}
                     className="input input-bordered w-full"
                   />
-                  <button onClick={passwordVisibility} className="-ml-10">
+                  <p onClick={passwordVisibility} className="-ml-10">
                     <FaEye></FaEye>
-                  </button>
+                  </p>
                 </div>
               </div>
-              <div className="form-control mt-6">
+              <div className="form-control">
                 <input
-                  disabled={false}
                   className="btn btn-primary"
                   type="submit"
                   value="Login"
                 />
               </div>
             </form>
-            <p className="text-center mb-4">
+            <div className="text-center ">
               <small>
                 New to LensMasters ?
                 <Link to="/register">
                   <span className="text-blue-600"> Create an account</span>
                 </Link>
               </small>
-            </p>
+            </div>
             <SocialLogin></SocialLogin>
           </div>
         </div>

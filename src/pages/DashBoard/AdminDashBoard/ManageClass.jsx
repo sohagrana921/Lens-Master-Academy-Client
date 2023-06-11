@@ -86,8 +86,8 @@ const ManageClass = () => {
             <th>#</th>
             <th>Image</th>
             <th>Name</th>
-            <th>Instructor Name</th>
-            <th>Instructor Email</th>
+            <th>Instructor Name & Email</th>
+
             <th>Seats</th>
             <th>Status</th>
             <th>Approve</th>
@@ -112,8 +112,11 @@ const ManageClass = () => {
                 </div>
               </td>
               <td>{course.name}</td>
-              <td>{course.instructor}</td>
-              <td>{course.email}</td>
+              <td>
+                {course.instructor} <br /> Email:
+                {course.email}
+              </td>
+
               <td>{course.seats}</td>
               <td>{course.status}</td>
               <td>

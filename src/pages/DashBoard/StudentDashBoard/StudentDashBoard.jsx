@@ -6,6 +6,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import { Link } from "react-router-dom";
 import SelectedClasses from "./SelectedClasses";
 import EnrolledClacess from "./EnrolledClacess";
+import PaymentHistory from "./PaymentHistory";
 const StudentDashBoard = () => {
   const [activeTab, setActiveTab] = useState("selected");
   const handleTabClick = (tabName) => {
@@ -24,7 +25,7 @@ const StudentDashBoard = () => {
           <Tab className="flex items-center bg-slate-200 ">
             <Link
               onClick={() => handleTabClick("selected")}
-              className={` px-8 py-4 rounded text-xl font-bold ${
+              className={` px-8 py-2 rounded text-lg font-bold ${
                 activeTab == "selected" ? " bg-pink-700 text-white" : ""
               }`}
             >
@@ -34,11 +35,21 @@ const StudentDashBoard = () => {
           <Tab className="flex items-center bg-slate-200 ">
             <Link
               onClick={() => handleTabClick("myClass")}
-              className={`px-8 uppercase py-4 rounded text-xl font-bold ${
+              className={`px-8 uppercase py-2 rounded text-lg font-bold ${
                 activeTab == "myClass" ? " bg-pink-700 text-white" : ""
               }`}
             >
               My Enrolled Classes
+            </Link>
+          </Tab>
+          <Tab className="flex items-center bg-slate-200 ">
+            <Link
+              onClick={() => handleTabClick("history")}
+              className={`px-8 uppercase py-2 rounded text-lg font-bold ${
+                activeTab == "history" ? " bg-pink-700 text-white" : ""
+              }`}
+            >
+              Payment History
             </Link>
           </Tab>
         </TabList>
@@ -47,6 +58,9 @@ const StudentDashBoard = () => {
         </TabPanel>
         <TabPanel>
           <EnrolledClacess></EnrolledClacess>
+        </TabPanel>
+        <TabPanel>
+          <PaymentHistory></PaymentHistory>
         </TabPanel>
       </Tabs>
     </div>

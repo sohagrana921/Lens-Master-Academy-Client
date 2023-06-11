@@ -26,7 +26,7 @@ const InstructorDashBoard = () => {
           <Tab className="flex items-center bg-slate-200 ">
             <Link
               onClick={() => handleTabClick("addClass")}
-              className={` px-8 py-4 rounded text-xl font-bold ${
+              className={` px-8 py-2 rounded text-lg font-bold ${
                 activeTab == "addClass" ? " bg-pink-700 text-white" : ""
               }`}
             >
@@ -36,7 +36,7 @@ const InstructorDashBoard = () => {
           <Tab className="flex items-center bg-slate-200 ">
             <Link
               onClick={() => handleTabClick("myClass")}
-              className={`px-8 py-4 rounded text-xl font-bold ${
+              className={`px-8 py-2 rounded text-lg font-bold ${
                 activeTab == "myClass" ? " bg-pink-700 text-white" : ""
               }`}
             >
