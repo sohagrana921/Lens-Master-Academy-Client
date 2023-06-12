@@ -20,9 +20,9 @@ const Instructors = () => {
         {instructors.map((instructor) => (
           <div key={instructor._id} className="card glass">
             <figure>
-              <img src={instructor.photo} alt="car!" />
+              <img className="w-full h-60" src={instructor.photo} alt="" />
             </figure>
-            <div className="card-body">
+            <div className="card-body ">
               <h2 className="text-xl font-semibold text-center">
                 {instructor.name}
               </h2>

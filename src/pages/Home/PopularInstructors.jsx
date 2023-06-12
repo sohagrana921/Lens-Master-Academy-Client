@@ -12,16 +12,12 @@ const PopularInstructor = () => {
         {instructors.slice(0, 6).map((instructor) => (
           <div key={instructor._id} className="card glass">
             <figure>
-              <img
-                src="https://i.ibb.co/znvcKH7/329040650-1396461091124897-798799447476968705-n.jpg"
-                alt="car!"
-              />
+              <img className="w-full h-60" src={instructor.photo} alt="car!" />
             </figure>
             <div className="card-body">
               <h2 className="text-xl font-semibold text-center">
                 {instructor.name}
               </h2>
-              <small>Email : {instructor.email}</small>
             </div>
           </div>
         ))}
