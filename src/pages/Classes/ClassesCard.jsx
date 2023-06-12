@@ -64,7 +64,7 @@ const ClassesCard = ({ course }) => {
       }`}
     >
       <figure>
-        <img src={photoURL} alt="Shoes" />
+        <img className="w-full h-60" src={photoURL} alt="" />
       </figure>
 
       <div className="card-body flex flex-col ">
