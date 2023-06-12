@@ -5,7 +5,9 @@ const PaymentHistory = () => {
   const { user } = useContext(AuthContext);
   const [history, setHistory] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:4000/paymentHistory/${user?.email}`)
+    fetch(
+      `https://lens-masters-academy-server.vercel.app/paymentHistory/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setHistory(data));
   }, [user?.email]);

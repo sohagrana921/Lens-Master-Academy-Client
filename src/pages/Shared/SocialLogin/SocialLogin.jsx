@@ -18,7 +18,7 @@ const SocialLogin = () => {
         status: "student",
         photo: loggedInUser.photoURL,
       };
-      fetch("http://localhost:4000/users", {
+      fetch("https://lens-masters-academy-server.vercel.app/users", {
         method: "POST",
         headers: {
           "content-type": "application/json",

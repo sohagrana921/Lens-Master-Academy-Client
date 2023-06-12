@@ -5,7 +5,7 @@ const useCourse = () => {
 
   const [course, setCourse] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:4000/courses`)
+    fetch(`https://lens-masters-academy-server.vercel.app/courses`)
       .then((res) => res.json())
       .then((data) => {
         setCourse(data);

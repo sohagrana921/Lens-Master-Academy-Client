@@ -6,7 +6,7 @@ const ManageClass = () => {
   const [feedbackId, setFeedbackId] = useState("");
   const feedbackInputRef = useRef(null);
   useEffect(() => {
-    fetch("http://localhost:4000/courses")
+    fetch("https://lens-masters-academy-server.vercel.app/courses")
       .then((res) => res.json())
       .then((data) => {
         setCourses(data);
@@ -14,9 +14,12 @@ const ManageClass = () => {
   }, [courses]);
 
   const handleMakeApproved = (course) => {
-    fetch(`http://localhost:4000/courses/approve/${course._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://lens-masters-academy-server.vercel.app/courses/approve/${course._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
@@ -31,9 +34,12 @@ const ManageClass = () => {
       });
   };
   const handleMakeDeny = (course) => {
-    fetch(`http://localhost:4000/courses/deny/${course._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://lens-masters-academy-server.vercel.app/courses/deny/${course._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
@@ -54,13 +60,16 @@ const ManageClass = () => {
     };
     console.log(data, id);
     setFeedbackId(id);
-    fetch(`http://localhost:4000/courses/feedback/${feedbackId}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      `https://lens-masters-academy-server.vercel.app/courses/feedback/${feedbackId}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

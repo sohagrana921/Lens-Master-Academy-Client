@@ -38,7 +38,9 @@ const router = createBrowserRouter([
         path: "updateClass/:id",
         element: <UpdateClasses></UpdateClasses>,
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/courses/${params.id}`),
+          fetch(
+            `https://lens-masters-academy-server.vercel.app/courses/${params.id}`
+          ),
       },
       {
         path: "login",
@@ -53,7 +55,9 @@ const router = createBrowserRouter([
         path: "payment/:id",
         element: <Payment></Payment>,
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/carts/${params.id}`),
+          fetch(
+            `https://lens-masters-academy-server.vercel.app/carts/${params.id}`
+          ),
       },
       {
         path: "dashboard",

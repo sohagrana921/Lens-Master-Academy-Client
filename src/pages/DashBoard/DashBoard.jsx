@@ -11,7 +11,7 @@ const DashBoard = () => {
   const [users, loading] = useUsers();
   // const [allUsers, setAllUsers] = useState([]);
   // useEffect(() => {
-  //   fetch("http://localhost:4000/users")
+  //   fetch("https://lens-masters-academy-server.vercel.app/users")
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setAllUsers(data);

@@ -7,7 +7,7 @@ const Classes = () => {
   // const [btnDisable, setBtnDisable] = useState(true);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:4000/courses")
+    fetch("https://lens-masters-academy-server.vercel.app/courses")
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);

@@ -29,7 +29,7 @@ const AddClass = () => {
       feedback,
       enroll: 0,
     };
-    fetch("http://localhost:4000/courses", {
+    fetch("https://lens-masters-academy-server.vercel.app/courses", {
       method: "POST",
       headers: {
         "content-type": "application/json",

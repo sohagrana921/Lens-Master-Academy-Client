@@ -22,7 +22,7 @@ const ClassesCard = ({ course }) => {
         email: user.email,
         instructor,
       };
-      fetch("http://localhost:4000/carts", {
+      fetch("https://lens-masters-academy-server.vercel.app/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json",

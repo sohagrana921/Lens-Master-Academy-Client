@@ -6,12 +6,11 @@ const PopularClass = () => {
 
   const sortedData = course.sort((a, b) => b.enroll - a.enroll);
   const mostEnrolls = sortedData.slice(0, 5);
-  console.log(mostEnrolls);
   return (
     <div>
       <SectionTitle heading={"Popular Courses"}></SectionTitle>
 
-      <div className="grid my-container grid-cols-3 gap-4">
+      <div className="md:grid my-container grid-cols-3 gap-4">
         {mostEnrolls.map((mostEnroll) => (
           <div key={mostEnroll._id} className="card  bg-base-100 shadow-xl">
             <figure>

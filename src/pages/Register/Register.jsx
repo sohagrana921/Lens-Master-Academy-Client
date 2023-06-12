@@ -34,7 +34,7 @@ const Register = () => {
             status: "student",
             photo: data.photoURL,
           };
-          fetch("http://localhost:4000/users", {
+          fetch("https://lens-masters-academy-server.vercel.app/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -56,7 +56,7 @@ const Register = () => {
               }
             });
         })
-        .catch((error) => console.log(error));
+        .catch((error) => setErr(error));
     });
   };
 
@@ -70,7 +70,7 @@ const Register = () => {
           <h1 className="text-5xl font-bold text-center my-4">
             Please Register
           </h1>
-          <p>{err}</p>
+          <p className="text-red-600">{err}</p>
           <div className="rounded-xl bg-slate-50">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
               <div className="form-control">

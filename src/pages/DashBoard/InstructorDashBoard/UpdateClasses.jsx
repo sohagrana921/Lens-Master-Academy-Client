@@ -14,13 +14,16 @@ const UpdateClasses = () => {
   const { _id, seats, price, photoURL, name } = updateCourse;
 
   const onSubmit = (data) => {
-    fetch(`http://localhost:4000/updateCourse/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
+    fetch(
+      `https://lens-masters-academy-server.vercel.app/updateCourse/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
