@@ -8,7 +8,7 @@ const PopularInstructor = () => {
     <div>
       <SectionTitle heading={"Popular Instructors"}></SectionTitle>
 
-      <div className="grid my-container grid-cols-3 gap-4 mb-10">
+      <div className="md:grid my-container grid-cols-3 gap-4 mb-10">
         {instructors.slice(0, 6).map((instructor) => (
           <div key={instructor._id} className="card glass">
             <figure>

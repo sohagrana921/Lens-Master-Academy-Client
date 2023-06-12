@@ -28,7 +28,7 @@ const Classes = () => {
     <div>
       <SectionTitle heading={"Classes"}></SectionTitle>
 
-      <div className="grid grid-cols-3 gap-2 my-container my-20">
+      <div className="md:grid grid-cols-3 gap-2 my-container my-20">
         {approvedCourse.map((course) => (
           <ClassesCard key={course._id} course={course}></ClassesCard>
         ))}

@@ -5,7 +5,7 @@ const PopularClass = () => {
   const [course] = useCourse();
 
   const sortedData = course.sort((a, b) => b.enroll - a.enroll);
-  const mostEnrolls = sortedData.slice(0, 5);
+  const mostEnrolls = sortedData.slice(0, 6);
   return (
     <div>
       <SectionTitle heading={"Popular Courses"}></SectionTitle>
@@ -14,7 +14,11 @@ const PopularClass = () => {
         {mostEnrolls.map((mostEnroll) => (
           <div key={mostEnroll._id} className="card  bg-base-100 shadow-xl">
             <figure>
-              <img src={mostEnroll.photoURL} alt="Shoes" />
+              <img
+                className="w-full h-60"
+                src={mostEnroll.photoURL}
+                alt="Shoes"
+              />
             </figure>
 
             <div className="card-body flex flex-col">
