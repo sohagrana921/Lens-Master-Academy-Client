@@ -7,25 +7,6 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOut();
   };
-  // __________________
-  // const [theme, setTheme] = useState(
-  //   localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
-  // );
-
-  // useEffect(() => {
-  //   localStorage.setItem("theme", theme);
-  //   const localTheme = localStorage.getItem("theme");
-
-  //   document.querySelector("html").setAttribute("data-theme", localTheme);
-  // }, [theme]);
-  // // update state on toggle
-  // const handleToggle = (e) => {
-  //   if (e.target.checked) {
-  //     setTheme("dark");
-  //   } else {
-  //     setTheme("light");
-  //   }
-  // };
   const navMenu = (
     <>
       <li>
@@ -59,7 +40,7 @@ const Navbar = () => {
           Classes
         </NavLink>
       </li>
-      <li></li>
+
       {user ? (
         <li>
           <NavLink
