@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 
@@ -7,13 +7,32 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOut();
   };
+  // __________________
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+  );
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    const localTheme = localStorage.getItem("theme");
+
+    document.querySelector("html").setAttribute("data-theme", localTheme);
+  }, [theme]);
+  // update state on toggle
+  const handleToggle = (e) => {
+    if (e.target.checked) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
   const navMenu = (
     <>
       <li>
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive ? "text-orange-500 font-bold" : "font-bold"
+            isActive ? "text-white font-bold" : "font-bold"
           }
         >
           Home
@@ -23,7 +42,7 @@ const Navbar = () => {
         <NavLink
           to="/instructors"
           className={({ isActive }) =>
-            isActive ? "text-orange-500 font-bold" : "font-bold"
+            isActive ? "text-white font-bold" : "font-bold"
           }
         >
           Instructors
@@ -34,7 +53,7 @@ const Navbar = () => {
         <NavLink
           to="/classes"
           className={({ isActive }) =>
-            isActive ? "text-orange-500 font-bold" : "font-bold"
+            isActive ? "text-white font-bold" : "font-bold"
           }
         >
           Classes
@@ -45,7 +64,7 @@ const Navbar = () => {
           <NavLink
             to="/dashboard"
             className={({ isActive }) =>
-              isActive ? "text-orange-500 font-bold" : "font-bold"
+              isActive ? "text-white font-bold" : "font-bold"
             }
           >
             Dashboard
@@ -59,7 +78,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar my-container max-w-screen-xl bg-slate-100 relative z-10">
+      <div className="navbar my-container max-w-screen-xl bg-orange-500 relative z-10">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">

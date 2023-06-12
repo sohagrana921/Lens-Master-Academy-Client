@@ -2,6 +2,8 @@ import { Helmet } from "react-helmet-async";
 import Banner from "./Banner";
 import PopularClass from "./PopularClass";
 import PopularInstructor from "./PopularInstructors";
+import TopPhoto from "./TopPhoto";
+import Faq from "./Faq";
 
 const Home = () => {
   return (
@@ -13,6 +15,8 @@ const Home = () => {
       <Banner></Banner>
       <PopularClass></PopularClass>
       <PopularInstructor></PopularInstructor>
+      <TopPhoto></TopPhoto>
+      <Faq></Faq>
     </div>
   );
 };
